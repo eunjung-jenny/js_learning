@@ -1,0 +1,25 @@
+.ball {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: green;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.goal {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  border: 2px solid black;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: red;
+}
