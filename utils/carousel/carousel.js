@@ -8,7 +8,7 @@ const SLIDE_NUM = items.length;
 const firstSlide = items[0];
 const lastSlide = items[SLIDE_NUM - 1];
 
-function handleLeft() {
+const handleLeft = function () {
   const currentSlide = document.querySelector(
     `.${SHOWING_CLASS}`
   );
@@ -20,9 +20,9 @@ function handleLeft() {
   } else {
     previousSlide.classList.add(SHOWING_CLASS);
   }
-}
+};
 
-function handleRight() {
+const handleRight = function () {
   const currentSlide = document.querySelector(
     `.${SHOWING_CLASS}`
   );
@@ -34,7 +34,7 @@ function handleRight() {
   } else {
     nextSlide.classList.add(SHOWING_CLASS);
   }
-}
+};
 
 leftBtn.addEventListener("click", handleLeft);
 rightBtn.addEventListener("click", handleRight);

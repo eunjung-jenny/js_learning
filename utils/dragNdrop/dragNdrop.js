@@ -11,27 +11,27 @@ const goal_size = 150,
   goal_right = 20,
   ball_size = 80;
 
-function getMouseInitialPosition(event) {
+const getMouseInitialPosition = function (event) {
   if (!is_dragging) {
     mouse_offset_x = event.clientX;
     mouse_offset_y = event.clientY;
   }
-}
+};
 
-function handleDrag(event) {
+const handleDrag = function (event) {
   ball.style.top =
     ball_top + event.clientY - mouse_offset_y + "px";
   ball.style.left =
     ball_left + event.clientX - mouse_offset_x + "px";
-}
+};
 
-function handleClick(event) {
+const handleClick = function (event) {
   mouse_offset_x = event.clientX;
   mouse_offset_y = event.clientY;
   ball.addEventListener("mousemove", handleDrag);
-}
+};
 
-function handleDrop(event) {
+const handleDrop = function (event) {
   ball_temp_top = Number(ball.style.top.replace("px", ""));
   ball_temp_left = Number(
     ball.style.left.replace("px", "")
@@ -54,7 +54,7 @@ function handleDrop(event) {
   ball.style.left = ball_left + "px";
 
   ball.removeEventListener("mousemove", handleDrag);
-}
+};
 
 ball.addEventListener("mousedown", handleClick);
 ball.addEventListener("mouseup", handleDrop);

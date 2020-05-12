@@ -5,19 +5,19 @@ modal_container = document.querySelector(
   ".js-modal-container"
 );
 
-function handleModalPaint() {
+const handleModalPaint = function () {
   modal_wrapper.classList.remove("deactive");
   setTimeout(() =>
     document.addEventListener("click", handleScreenClick)
   );
-}
+};
 
-function handleModalRemove() {
+const handleModalRemove = function () {
   modal_wrapper.classList.add("deactive");
   document.removeEventListener("click", handleScreenClick);
-}
+};
 
-function handleScreenClick(event) {
+const handleScreenClick = function (event) {
   const is_modal = !modal_wrapper.classList.contains(
     "deactive"
   );
@@ -28,7 +28,7 @@ function handleScreenClick(event) {
   if (is_modal && is_outside) {
     handleModalRemove();
   }
-}
+};
 
 modal_paint.addEventListener("click", handleModalPaint);
 modal_remove.addEventListener("click", handleModalRemove);
