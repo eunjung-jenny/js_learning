@@ -1,33 +1,40 @@
-const left_btn = document.querySelector(".js-left");
-const right_btn = document.querySelector(".js-right");
+const leftBtn = document.querySelector(".js-left");
+const rightBtn = document.querySelector(".js-right");
 const items = document.querySelectorAll(".js-item");
 
 const SHOWING_CLASS = "show";
-const ITEM_NUM = items.length;
+const SLIDE_NUM = items.length;
+
+const firstSlide = items[0];
+const lastSlide = items[SLIDE_NUM - 1];
 
 function handleLeft() {
-  for (let i = 0; i < ITEM_NUM; i++) {
-    if (items[i].classList.contains(SHOWING_CLASS)) {
-      items[i].classList.remove(SHOWING_CLASS);
-      items[(i + ITEM_NUM - 1) % ITEM_NUM].classList.add(
-        SHOWING_CLASS
-      );
-      break;
-    }
+  const currentSlide = document.querySelector(
+    `.${SHOWING_CLASS}`
+  );
+  currentSlide.classList.remove(SHOWING_CLASS);
+
+  const previousSlide = currentSlide.previousElementSibling;
+  if (currentSlide === firstSlide) {
+    lastSlide.classList.add(SHOWING_CLASS);
+  } else {
+    previousSlide.classList.add(SHOWING_CLASS);
   }
 }
 
 function handleRight() {
-  for (let i = 0; i < ITEM_NUM; i++) {
-    if (items[i].classList.contains(SHOWING_CLASS)) {
-      items[i].classList.remove(SHOWING_CLASS);
-      items[(i + 1) % ITEM_NUM].classList.add(
-        SHOWING_CLASS
-      );
-      break;
-    }
+  const currentSlide = document.querySelector(
+    `.${SHOWING_CLASS}`
+  );
+  currentSlide.classList.remove(SHOWING_CLASS);
+
+  const nextSlide = currentSlide.nextElementSibling;
+  if (currentSlide === lastSlide) {
+    firstSlide.classList.add(SHOWING_CLASS);
+  } else {
+    nextSlide.classList.add(SHOWING_CLASS);
   }
 }
 
-left_btn.addEventListener("click", handleLeft);
-right_btn.addEventListener("click", handleRight);
+leftBtn.addEventListener("click", handleLeft);
+rightBtn.addEventListener("click", handleRight);
