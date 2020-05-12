@@ -1,0 +1,51 @@
+* {
+  box-sizing: borer-box;
+  margin: 0;
+  padding: 0;
+}
+.carousel-wrapper {
+  width: 100vw;
+  height: 300px;
+  position: relative;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.carousel-item:nth-child(odd) {
+  background-color: palevioletred;
+}
+
+.carousel-item:nth-child(even) {
+  background-color: darkcyan;
+}
+
+.arrow {
+  position: absolute;
+  top: calc(150px - 20px);
+  font-size: 40px;
+  color: white;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.show {
+  opacity: 1;
+}
