@@ -1,33 +1,33 @@
-const menu_items = document.querySelectorAll(".menu__item");
+const menuItems = document.querySelectorAll(".menu__item");
 
 const handleMouseLeave = function (event) {
-  const sub_items = event.target.querySelectorAll(
+  const subItems = event.target.querySelectorAll(
     ".sub-menu__item"
   );
-  sub_items.forEach((sub_item) =>
-    sub_item.classList.remove("show")
+  subItems.forEach((subItem) =>
+    subItem.classList.remove("show")
   );
 };
 
 const handleMouseEnter = function (event) {
-  const sub_menu = event.target.querySelector(".sub-menu");
-  if (sub_menu) {
+  const subMenu = event.target.querySelector(".sub-menu");
+  if (subMenu) {
     event.target.addEventListener(
       "mouseleave",
       handleMouseLeave
     );
 
-    const sub_items = sub_menu.querySelectorAll(
+    const subItems = subMenu.querySelectorAll(
       ".sub-menu__item"
     );
-    sub_items.forEach((sub_item) =>
-      sub_item.classList.add("show")
+    subItems.forEach((subItem) =>
+      subItem.classList.add("show")
     );
   }
 };
 
 const init = function () {
-  menu_items.forEach((item) =>
+  menuItems.forEach((item) =>
     item.addEventListener("mouseenter", handleMouseEnter)
   );
 };

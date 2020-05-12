@@ -1,34 +1,32 @@
-modal_paint = document.querySelector(".js-modal-btn");
-modal_remove = document.querySelector(".js-modal-dismiss");
-modal_wrapper = document.querySelector(".js-modal-wrapper");
-modal_container = document.querySelector(
+modalPaint = document.querySelector(".js-modal-btn");
+modalRemove = document.querySelector(".js-modal-dismiss");
+modalWrapper = document.querySelector(".js-modal-wrapper");
+modalContainer = document.querySelector(
   ".js-modal-container"
 );
 
 const handleModalPaint = function () {
-  modal_wrapper.classList.remove("deactive");
+  modalWrapper.classList.remove("deactive");
   setTimeout(() =>
     document.addEventListener("click", handleScreenClick)
   );
 };
 
 const handleModalRemove = function () {
-  modal_wrapper.classList.add("deactive");
+  modalWrapper.classList.add("deactive");
   document.removeEventListener("click", handleScreenClick);
 };
 
 const handleScreenClick = function (event) {
-  const is_modal = !modal_wrapper.classList.contains(
+  const is_modal = !modalWrapper.classList.contains(
     "deactive"
   );
-  const is_outside = !modal_container.contains(
-    event.target
-  );
+  const is_outside = !modalContainer.contains(event.target);
 
   if (is_modal && is_outside) {
     handleModalRemove();
   }
 };
 
-modal_paint.addEventListener("click", handleModalPaint);
-modal_remove.addEventListener("click", handleModalRemove);
+modalPaint.addEventListener("click", handleModalPaint);
+modalRemove.addEventListener("click", handleModalRemove);
